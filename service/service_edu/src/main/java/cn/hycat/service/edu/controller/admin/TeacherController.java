@@ -24,7 +24,7 @@ import java.util.Map;
  * @author hy
  * @since 2022-03-08
  */
-@Api(tags = "讲师管理")
+@Api(tags = "讲师管")
 @RestController
 @RequestMapping("/admin/edu/teacher")
 public class TeacherController {
