@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.hycat.service.edu.mapper.CourseMapper">
+
+    <select id="pageList" resultType="cn.hycat.service.edu.domain.vo.CourseListVo">
+        select
+            c.id,
+            c.title,
+            c.price,
+            c.cover,
+            c.buy_count as buyCount,
+            c.lesson_num as lessonNum,
+            c.gmt_create as gmtCreate,
+            c.`status`,
+            c.view_count as viewCount,
+            t.`name` as teacherName,
+            s1.title as subjectParentName,
+            s2.title as subjectName
+        from edu_course c
+                 left join edu_teacher t on c.teacher_id=t.id
+                 left join edu_subject s1 on c.subject_parent_id=s1.id
+                 left join edu_subject s2 on c.subject_id=s2.id
+        ${ew.customSqlSegment}
+    </select>
+
+    <select id="selectWebCourseVoById" resultType="cn.hycat.service.edu.domain.vo.WebCourseVo">
+        SELECT
+            c.id,
+            c.title,
+            c.cover,
+            CONVERT(c.price, DECIMAL(8,2)) AS price,
+            c.lesson_num AS lessonNum,
+            c.buy_count AS buyCount,
+            c.view_count AS viewCount,
+            cd.description,
+
+            t.id AS teacherId,
+            t.name AS teacherName,
+            t.intro,
+            t.avatar,
+
+            s1.id AS subjectLevelOneId,
+            s1.title AS subjectLevelOne,
+            s2.id AS subjectLevelTwoId,
+            s2.title AS subjectLevelTwo
+
+        FROM
+            edu_course c
+                LEFT JOIN edu_course_description cd ON c.id = cd.id
+                LEFT JOIN edu_teacher t ON c.teacher_id = t.id
+                LEFT JOIN edu_subject s1 ON c.subject_parent_id = s1.id
+                LEFT JOIN edu_subject s2 ON c.subject_id = s2.id
+        WHERE
+            c.id = #{id}
+    </select>
+    <select id="getCourseDtoByCourseId" resultType="cn.hycat.service.base.dto.CourseDto">
+        select
+        c.course_id as courseId,
+        c.course_title as courseTitle,
+        c.course_cover as courseCover,
+        c.price as price,
+        t.teacher_name as teacherName
+        from edu_course c
+        left join edu_teacher t on c.teacher_id = t.id
+    </select>
+</mapper>
