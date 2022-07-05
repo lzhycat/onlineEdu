@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
  * @version 1.0
  */
 @Service
-@FeignClient("service-oss")
+@FeignClient(name = "service-oss")
 public interface OssFeignService {
 
     @DeleteMapping("/admin/oss/removeUrl")

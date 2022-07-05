@@ -35,6 +35,7 @@ public class ApiMemberController {
     @PostMapping("register")
     public ResponseResult register(@ApiParam(value = "注册表单")
                                    @RequestBody RegisterVo registerVo) {
+
         memberService.register(registerVo);
 
         return ResponseResult.ok().message("注册成功");
