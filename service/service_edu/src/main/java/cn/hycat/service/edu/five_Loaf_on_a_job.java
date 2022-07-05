@@ -2,7 +2,6 @@ package cn.hycat.service.edu;
 
 import java.security.SecureRandom;
 import java.time.Instant;
-import java.util.HashMap;
 import java.util.concurrent.*;
 
 /**
@@ -16,11 +15,22 @@ public class five_Loaf_on_a_job {
     private static Boolean[] random = new Boolean[capacity];
 
     public static void main(String[] args) {
+        initRandom();
+        for(int i = 0; i < 100; i++) {
+            SecureRandom secureRandom = new SecureRandom();
+            int x = secureRandom.nextInt(100);
+            int y = hashIdx(x);
+            if(Boolean.TRUE.equals(random[y])) {
+                System.out.println(1);
+            }
+//            System.out.println("第" + i + "次" +  " " + Boolean.TRUE.equals(random[y]));
+        }
+
+        System.out.println();
     }
 
     public static void initRandom() {
-        SecureRandom secureRandom = new SecureRandom();
-        for(int i = 0; i < 60; i++) {
+        for(int i = 0; i < 1; i++) {
             random[hashIdx(i)] = Boolean.TRUE;
         }
     }
