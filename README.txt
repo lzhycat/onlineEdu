@@ -4,6 +4,7 @@ service-vod 9020
 service-sms 9030
 service-cms 9040
 service-grade 9050
+service-statistics 9060
 
 service-ucenter 8160
 

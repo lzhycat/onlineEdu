@@ -1,5 +1,7 @@
 package cn.hycat.service.edu;
 
+import org.apache.poi.ss.formula.functions.T;
+
 import java.security.SecureRandom;
 import java.time.Instant;
 import java.util.concurrent.*;
@@ -15,18 +17,7 @@ public class five_Loaf_on_a_job {
     private static Boolean[] random = new Boolean[capacity];
 
     public static void main(String[] args) {
-        initRandom();
-        for(int i = 0; i < 100; i++) {
-            SecureRandom secureRandom = new SecureRandom();
-            int x = secureRandom.nextInt(100);
-            int y = hashIdx(x);
-            if(Boolean.TRUE.equals(random[y])) {
-                System.out.println(1);
-            }
-//            System.out.println("第" + i + "次" +  " " + Boolean.TRUE.equals(random[y]));
-        }
-
-        System.out.println();
+        ThreadPoolDemo();
     }
 
     public static void initRandom() {
@@ -42,7 +33,7 @@ public class five_Loaf_on_a_job {
         return hashCode & (capacity - 1);
     }
 
-    public void ThreadPoolDemo() {
+    public static void ThreadPoolDemo() {
         BlockingQueue<Runnable> queue = new ArrayBlockingQueue(10);
         ThreadPoolExecutor threadPool = new ThreadPoolExecutor(
                 5,
@@ -53,12 +44,7 @@ public class five_Loaf_on_a_job {
                 Executors.defaultThreadFactory(),
                 new ThreadPoolExecutor.CallerRunsPolicy());
         for(int i = 0; i < 10; i++) {
-            threadPool.execute(new Runnable() {
-                @Override
-                public void run() {
-                    System.out.println(Instant.now() + " " + Thread.currentThread().getName());
-                }
-            });
+            threadPool.execute(() -> System.out.println(Instant.now() + " " + Thread.currentThread().getName()));
         }
     }
 }
