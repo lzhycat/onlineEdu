@@ -15,32 +15,32 @@ spring:
         locator:
           enabled: true # gateway可以发现nacos中的微服务
       routes:
-        - id: service-edu
-          uri: lb://service-edu
+        - id: cn.hycat.service.statistics.service-edu
+          uri: lb://cn.hycat.service.statistics.service-edu
           predicates:
             - Path=/user/**, /*/edu/**
-        - id: service-cms
-          uri: lb://service-cms
+        - id: cn.hycat.service.statistics.service-cms
+          uri: lb://cn.hycat.service.statistics.service-cms
           predicates:
             - Path=/*/cms/**
-        - id: service-oss
-          uri: lb://service-oss
+        - id: cn.hycat.service.statistics.service-oss
+          uri: lb://cn.hycat.service.statistics.service-oss
           predicates:
             - Path=/*/oss/**
-        - id: service-sms
-          uri: lb://service-sms
+        - id: cn.hycat.service.statistics.service-sms
+          uri: lb://cn.hycat.service.statistics.service-sms
           predicates:
             - Path=/*/sms/**
-        - id: service-trade
-          uri: lb://service-trade
+        - id: cn.hycat.service.statistics.service-trade
+          uri: lb://cn.hycat.service.statistics.service-trade
           predicates:
             - Path=/*/trade/**
-        - id: service-ucenter
-          uri: lb://service-ucenter
+        - id: cn.hycat.service.statistics.service-ucenter
+          uri: lb://cn.hycat.service.statistics.service-ucenter
           predicates:
             - Path=/*/ucenter/**
-        - id: service-vod
-          uri: lb://service-vod
+        - id: cn.hycat.service.statistics.service-vod
+          uri: lb://cn.hycat.service.statistics.service-vod
           predicates:
             - Path=/*/vod/**
 

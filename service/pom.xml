@@ -8,16 +8,16 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>service</artifactId>
+    <artifactId>cn.hycat.service.statistics.service</artifactId>
     <packaging>pom</packaging>
     <modules>
         <module>service_edu</module>
-        <module>service-oss</module>
-        <module>service-sms</module>
-        <module>service-vod</module>
-        <module>service-ucenter</module>
-        <module>service-trade</module>
-        <module>service-cms</module>
+        <module>cn.hycat.service.statistics.service-oss</module>
+        <module>cn.hycat.service.statistics.service-sms</module>
+        <module>cn.hycat.service.statistics.service-vod</module>
+        <module>cn.hycat.service.statistics.service-ucenter</module>
+        <module>cn.hycat.service.statistics.service-trade</module>
+        <module>cn.hycat.service.statistics.service-cms</module>
         <module>sevice-statistics</module>
     </modules>
 

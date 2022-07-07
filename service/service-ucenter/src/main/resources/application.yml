@@ -5,7 +5,7 @@ spring:
   profiles:
     active: dev # 环境设置
   application:
-    name: service-ucenter # 服务名
+    name: cn.hycat.service.statistics.service-ucenter # 服务名
   cloud:
     nacos:
       discovery:

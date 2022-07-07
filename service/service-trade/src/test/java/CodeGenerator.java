@@ -49,8 +49,8 @@ public class CodeGenerator {
         // 4、包配置
         PackageConfig pc = new PackageConfig();
         pc.setModuleName(moduleName); //模块名
-        pc.setParent("cn.hycat.service.tarde");
-        pc.setController("controller");
+        pc.setParent("cn.hycat.service.statistics.service.tarde");
+        pc.setController("cn.hycat.service.statistics.controller");
         pc.setEntity("domain");
         pc.setService("service");
         pc.setMapper("mapper");
@@ -80,7 +80,7 @@ public class CodeGenerator {
         mpg.setStrategy(strategy);
 
         //设置BaseEntity
-        strategy.setSuperEntityClass("cn.hycat.service.base.model.BaseEntity");
+        strategy.setSuperEntityClass("cn.hycat.service.statistics.service.base.model.BaseEntity");
 //      //填写BaseEntity中的公共字段
         strategy.setSuperEntityColumns("id", "gmt_create", "gmt_modified");
 

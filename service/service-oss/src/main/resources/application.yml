@@ -6,7 +6,7 @@ spring:
     active: dev # 环境设置
 #spring:
   application:
-    name: service-oss # 服务名
+    name: cn.hycat.service.statistics.service-oss # 服务名
 #spring:
   cloud:
     nacos:

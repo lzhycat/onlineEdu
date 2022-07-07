@@ -6,7 +6,7 @@ spring:
     active: dev # 环境设置
 #spring:
   application:
-    name: service-trade # 服务名
+    name: cn.hycat.service.statistics.service-trade # 服务名
 #spring:
   datasource: # mysql数据库连接
     driver-class-name: com.mysql.cj.jdbc.Driver
